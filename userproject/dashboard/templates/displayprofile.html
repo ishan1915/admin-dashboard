@@ -1,0 +1,62 @@
+{% load static %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
+
+<title>
+</title>
+</head>
+<body>
+<div class="asd">
+  <a href="{% url 'logout' %}">Logout</a>
+  
+</div>  
+
+<div class="main">
+   <div class="details">
+  {% block content %}
+ 
+    <h2>Profile</h2>
+    {% if user_detail %}
+        <p>First Name: {{ user_detail.firstname }}</p>
+        <p>Last Name: {{ user_detail.lastname }}</p>
+        <p>Contact: {{ user_detail.contact }}</p>
+        <p>Address: {{ user_detail.address }}</p>
+        <a href="{% url 'editprofile' %}">Edit Profile</a>
+		<a href="{% url 'additem' %}">Add Item</a>
+
+    {% else %}
+        <p>No profile details found.</p>
+        <a href="{% url 'editprofile' %}">Add Profile</a>
+		
+
+
+    {% endif %}
+  
+   </div>
+
+
+
+   <ul class="nav">
+  {%for item in items%}
+   <li>
+   {{item.name}}
+   {{item.price}}
+   {{item.description}}
+   
+   <a href="{% url 'edititem' item.id %}">Edit Item</a>
+   </li>
+	{%endfor%}
+   </ul>
+  
+ 
+</div> 
+  
+
+{%endblock%}
+   
+</body>
+</html>
