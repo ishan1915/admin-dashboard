@@ -6,18 +6,20 @@ body, html {
 
 /* Basic styling for the main container */
 .main {
-  max-width: 800px;
+  max-width: 900px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+ /* background-color: #f0f0f0;
+  /*border: 1px solid #ccc;
+  border-radius: 8px;*/
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display:flex;
 }
 
 /* Styling for the profile details section */
 .details {
   margin-bottom: 20px;
+  width:60%;
 }
 
 .details h2 {
@@ -46,6 +48,17 @@ body, html {
   background-color: #0056b3;
 }
 
+
+.pp {
+            width: 505%; /* Adjust width of profile photo section */
+            text-align: center;
+			padding-top:35px;
+   }
+  .pp img {
+            max-width: 200px; /* Ensure image scales within its container */
+            max-height: 200px; /* Ensure image scales within its container */
+            border-radius: 0%; /* Optional: Round the corners for circular profile photo */
+  }
 /* Styling for the items section */
 .cal {
   margin-top: 20px;
@@ -82,3 +95,8 @@ body, html {
 .cal li a:hover {
   background-color: #218838;
 }
+
+ .pp {
+            max-width: 20px;
+            max-height: 20px; 
+        }

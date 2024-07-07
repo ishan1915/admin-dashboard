@@ -20,7 +20,7 @@ class SignUpForm(UserCreationForm):
 class UserDetailForm(forms.ModelForm):
     class Meta:
         model = UserDetail
-        fields = ['firstname', 'lastname', 'contact', 'address']
+        fields = ['firstname', 'lastname', 'contact', 'address','profile_photo']
 
 
 

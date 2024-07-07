@@ -9,6 +9,7 @@ class UserDetail(models.Model):
     lastname = models.CharField(max_length=100)
     contact = models.CharField(max_length=20)
     address = models.TextField(null=True)
+    profile_photo = models.ImageField(upload_to='profilephotos/', null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.username}'s details"

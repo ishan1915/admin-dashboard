@@ -40,6 +40,10 @@ def login(request):
     return render(request, 'login.html', {'form': form})
 
 
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
 def profile_view(request):
     try:
         user_detail = UserDetail.objects.get(user=request.user)
@@ -59,7 +63,7 @@ def profile_edit(request):
         user_detail = None
     
     if request.method == 'POST':
-        form = UserDetailForm(request.POST, instance=user_detail)
+        form = UserDetailForm(request.POST, request.FILES ,instance=user_detail)
         if form.is_valid():
             form.save()
             return redirect('displayprofile')  # Redirect to profile view after editing
@@ -100,7 +104,7 @@ def item_delete(request, item_id):
     item = get_object_or_404(Item, id=item_id, user=request.user)
     if request.method == 'POST':
         item.delete()
-        return redirect('profile-view')  # Redirect to profile view after deleting item
+        return redirect('displayprofile')  # Redirect to profile view after deleting item
     
     return render(request, 'confirm_delete.html', {'item': item})
 
