@@ -1,10 +1,10 @@
-/* Resetting default margin and padding */
+
 body, html {
   margin: 0;
   padding: 0;
 }
 
-/* Basic styling for the main container */
+
 .main {
   max-width: 900px;
   margin: 20px auto;
@@ -16,7 +16,53 @@ body, html {
   display:flex;
 }
 
-/* Styling for the profile details section */
+
+.header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.header li {
+  float: left;
+}
+
+.header li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size:20px;
+}
+
+.header li a:hover {
+  background-color: #111;
+}
+
+ table {
+  border-collapse: collapse;
+  width: 100%;
+  padding-left:10px;
+  margin-left:20px;
+  margin-right:20px;
+  padding-left:10px;
+}
+th{
+	
+ background-color: #04AA6D;
+
+}	
+
+th, td {
+  text-align: left;
+  padding: 6px;
+  
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
 .details {
   margin-bottom: 20px;
   width:60%;
@@ -50,16 +96,18 @@ body, html {
 
 
 .pp {
-            width: 505%; /* Adjust width of profile photo section */
+            width: 505%; 
             text-align: center;
 			padding-top:35px;
    }
   .pp img {
-            max-width: 200px; /* Ensure image scales within its container */
-            max-height: 200px; /* Ensure image scales within its container */
-            border-radius: 0%; /* Optional: Round the corners for circular profile photo */
+            max-width: 200px; 
+            max-height: 200px; 
+            border-radius: 0%; 
   }
-/* Styling for the items section */
+  
+  
+
 .cal {
   margin-top: 20px;
 }
@@ -100,3 +148,44 @@ body, html {
             max-width: 20px;
             max-height: 20px; 
         }
+		
+		
+.footer {
+  position: absolute;
+  display:flex;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color:white;
+  padding: 10px;
+  
+  clear: both;
+}
+
+.foot1, .foot2, .foot3 {
+	flex:2;
+  /*display: inline-block;*/
+  padding-left:50px;
+}		
+
+.foot1{
+padding-left:25px;
+margin-left:25px;
+margin-right:10px;
+}	
+
+.foot2{
+margin-right:20px;
+padding-right:20px	
+	
+	
+}	
+.foot3{
+padding-left:20px;
+margin-left:20px;	
+padding-right:10px;	
+margin-right:10px;	
+	
+		
+		
+}

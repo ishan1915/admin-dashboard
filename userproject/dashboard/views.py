@@ -4,7 +4,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-
+from django.http import HttpResponse
+from django.http import HttpResponseForbidden
 
 from .models import UserDetail,Item
 from .forms import SignUpForm,UserDetailForm,ItemForm
@@ -44,6 +45,7 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
+@login_required
 def profile_view(request):
     try:
         user_detail = UserDetail.objects.get(user=request.user)
@@ -56,11 +58,11 @@ def profile_view(request):
 
   
 
-def profile_edit(request):
+def profile_edit(request,user_id):
     try:
-        user_detail = UserDetail.objects.get(user=request.user)
+        user_detail = UserDetail.objects.get(id=user_id,user=request.user)
     except UserDetail.DoesNotExist:
-        user_detail = None
+        user_detail = UserDetail(user=request.user)
     
     if request.method == 'POST':
         form = UserDetailForm(request.POST, request.FILES ,instance=user_detail)
